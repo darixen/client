@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+/* 1. Standard CSS for Global Body - Avoids the @apply build crash */
+:root {
+  --syndicate-bg: #050505;
+}
+
+body {
+  background-color: var(--syndicate-bg);
+  color: #d1d5db; /* This is the hex for gray-300 */
+  margin: 0;
+}
+
+/* 2. Custom HUD Animations for the Industrial UI */
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+.animate-scanline {
+  animation: scanline 8s linear infinite;
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.animate-pulse {
+  animation: pulse-soft 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* 3. Grid Background Utility */
+.grid-background {
+  background-image: 
+    linear-gradient(#3b82f6 1px, transparent 1px), 
+    linear-gradient(90deg, #3b82f6 1px, transparent 1px);
+  background-size: 50px 50px;
+}
